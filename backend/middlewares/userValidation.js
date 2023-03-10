@@ -43,7 +43,21 @@ const loginValidation = () => {
     ]
 }
 
+const userUpdateValidation = () => {
+    return [
+        body("name")
+            .optional()
+            .isLength({min:3})
+            .withMessage("Nome precisa de pelo menos 3 caracteres"),
+        body("password")
+            .optional()
+            .isLength({min: 5})
+            .withMessage("Sua senha precisa ter no mínimo 5 caracteres")
+    ]
+}
+
 module.exports = {
     useCreateValidation,
     loginValidation,
+    userUpdateValidation,
 }
